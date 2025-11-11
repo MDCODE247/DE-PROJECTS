@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ZenQuotes Subscribers</title>
+</head>
+<body>
+    <h1>Subscribers</h1>
+    <a href="{{ url_for('subscribe') }}">Add new subscriber</a>
+    <ul>
+    {% for name, email, status in users %}
+        <li>{{ name }} - {{ email }} - {{ status }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
