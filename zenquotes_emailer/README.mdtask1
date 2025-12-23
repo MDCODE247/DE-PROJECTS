@@ -1,0 +1,71 @@
+Containerizing the MindFuel Quote Delivery Service
+
+
+Overview
+
+MindFuel is a mental-wellness platform that delivers daily motivational quotes to subscribers via email.
+This task focuses on containerizing the Python backend service using Docker to ensure:
+
+Environment consistency
+
+Dependency isolation
+
+Reproducible deployments
+
+Easy portability across machines
+
+Task Objective
+
+Package the Python quote-delivery service into a single Docker image
+
+Ensure the service runs reliably inside a container
+
+Publish the image to a container registry
+
+Provide clear instructions for running the service
+
+
+Tech Stack
+
+Python 3.11
+
+Docker
+
+ZenQuotes API
+
+SMTP (Gmail)
+
+Python libraries:
+
+requests
+
+python-dotenv
+
+schedule
+
+yagmail
+
+Project Structure
+
+zenquotes_emailer/
+├── Dockerfile
+├── requirements.txt
+├── scheduler.py
+├── send_email.py
+├── .env
+├── logs/
+
+
+Build the docker image 
+
+docker build -t mindfuel-emailer:1.0 .
+
+Run Container 
+
+docker run --env-file .env mindfuel-emailer:1.0
+
+Publish to Docker Hub
+
+docker tag mindfuel-emailer:1.0 mdethereal/mindfuel-emailer:1.0
+docker push mdethereal/mindfuel-emailer:1.0
+

@@ -1,0 +1,5 @@
+requests
+python-dotenv
+schedule
+yagmail
+psycopg2-binary

@@ -1,0 +1,88 @@
+
+# README — Task 2
+## Multi-Container Setup with Docker Compose
+
+Overview
+
+This task extends Task 1 by designing a production-like multi-container architecture using Docker Compose.
+
+The system consists of:
+
+A Python application container
+
+A PostgreSQL database container
+
+Persistent storage via Docker volumes
+
+Secure configuration using environment variables
+
+Task Objective
+
+Orchestrate multiple containers with Docker Compose
+
+Enable automatic service discovery
+
+Persist database data across restarts
+
+Allow easy rebuilds using docker compose up --build
+
+Tech Stack
+
+Docker Compose
+
+Python 3.11
+
+PostgreSQL 16
+
+psycopg2 (PostgreSQL driver)
+
+Environmental Variables 
+
+EMAIL_ADDRESS= your email 
+EMAIL_PASSWORD= your_app_password
+
+DB_HOST=db
+DB_PORT=5432
+DB_NAME=mindfuel
+DB_USER=mindfuel_user
+DB_PASSWORD=mindfuel_pass
+
+
+DB Integraation 
+
+DB_HOST=db
+
+
+┌────────────────────┐
+│  Python App        │
+│  (mindfuel-emailer)│
+│                    │
+│  connects to       │
+└─────────┬──────────┘
+          │
+          ▼
+┌────────────────────┐
+│  PostgreSQL DB     │
+│  (persistent)     │
+└────────────────────┘
+
+ FOLDER STRUCTURE  
+
+zenquotes_emailer/
+├── Dockerfile
+├── compose.yml
+├── requirements.txt
+├── scheduler.py
+├── send_email.py
+├── .env
+├── logs/
+
+COMMANDS TO USE
+
+docker compose up --build
+docker compose ps
+docker compose logs app
+docker compose logs db
+
+
+
